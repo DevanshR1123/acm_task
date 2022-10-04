@@ -1,15 +1,28 @@
 import React, { useContext } from "react";
+import { Navigate } from "react-router-dom";
 import AuthContext from "../context/AuthContext";
 
 const LoginPage = () => {
-  const { LoginUser } = useContext(AuthContext);
+  const { user, LoginUser } = useContext(AuthContext);
+
+  if (user) return <Navigate to='/' />;
 
   return (
-    <div>
+    <div className='form-container container'>
       <form action='POST' className='login-form' onSubmit={LoginUser}>
-        <input type='text' name='username' placeholder='Enter Username' />
-        <input type='password' name='password' placeholder='Enter Password' />
-        <input type='submit' />
+        <input
+          type='text'
+          name='username'
+          placeholder='Enter Username'
+          className='input-field'
+        />
+        <input
+          type='password'
+          name='password'
+          placeholder='Enter Password'
+          className='input-field'
+        />
+        <input type='submit' className='input-btn' />
       </form>
     </div>
   );

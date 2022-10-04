@@ -7,7 +7,7 @@ interface AuthProps {
 }
 
 const RequireAuth = ({ children, redirectTo }: AuthProps) => {
-  const { isAuthenticated } = useContext(AuthContext);
-  return isAuthenticated ? children : <Navigate to={redirectTo} />;
+  const { user } = useContext(AuthContext);
+  return user ? children : <Navigate to={redirectTo} />;
 };
 export default RequireAuth;
