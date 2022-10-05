@@ -30,6 +30,8 @@ export const AuthProvider = ({ children }: Props) => {
 
   const [Loading, setLoading] = useState(true);
 
+  const BEARER_TOKEN = import.meta.env.VITE_BEARER_TOKEN;
+
   const navigate = useNavigate();
 
   const LoginUser = async (e: Event & response) => {
@@ -107,7 +109,13 @@ export const AuthProvider = ({ children }: Props) => {
     return () => clearInterval(interval);
   }, [AuthTokens, Loading]);
 
-  let data: AuthData = { user, AuthTokens, LoginUser, LogoutUser };
+  let data: AuthData = {
+    user,
+    AuthTokens,
+    LoginUser,
+    LogoutUser,
+    BEARER_TOKEN,
+  };
 
   return (
     <AuthContext.Provider value={data}>

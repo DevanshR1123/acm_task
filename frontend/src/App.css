@@ -2,16 +2,21 @@
   background-color: grey;
   display: flex;
   flex-direction: row;
-  gap: 1em;
-  padding: 0.5em;
   margin: 0;
+  font-size: 16pt;
 }
 
 .navbar a {
   text-decoration: none;
   font-weight: bold;
+  padding: 0.5em;
   color: #303030;
   cursor: pointer;
+}
+
+.navbar a:where(:hover, :focus) {
+  color: ghostwhite;
+  background-color: #1f1e1e;
 }
 
 .login-form {
@@ -23,4 +28,44 @@
 .login-form input {
   padding: 0.25em;
   font-size: 16pt;
+}
+
+.homepage-container {
+  padding: 2rem;
+  display: grid;
+  place-items: center;
+  background-image: linear-gradient(hsl(241, 47%, 20%), hsl(240, 47%, 14%));
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20ch, 1fr));
+  grid-gap: 2em;
+  width: 100%;
+}
+
+.card {
+  border: 2px solid slategray;
+  border-radius: 0.5em;
+  padding: 150% 0.5em 0.5em;
+  /* max-width: var(--image-size); */
+  grid-gap: 1em;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: #303030;
+  color: hsl(0, 0%, 90%);
+
+  box-shadow: hsla(0, 0%, 0%, 0.411) 0 0 0.5em 0.2em;
+}
+
+.card-image {
+  max-width: 100%;
+}
+
+.card-title {
+  margin: 0 0 0.2em;
+}
+
+.card-year {
+  margin: 0;
 }
